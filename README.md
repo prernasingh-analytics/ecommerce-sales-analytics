@@ -1,4 +1,6 @@
-# E-Commerce Sales & Customer Analytics | Olist
+## 📊 Live Interactive Dashboard
+
+[Click here to explore my E-Commerce Sales Dashboard](https://prernasingh-analytics.github.io/ecommerce-sales-analytics/dashboard/index.html)# E-Commerce Sales & Customer Analytics | Olist
 
 An **offline, interactive HTML dashboard** and reproducible Python/SQL analytics project built using the public [Olist Brazilian E-Commerce Dataset](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce). Historical 2016–2018 transactions; no live data.
 
