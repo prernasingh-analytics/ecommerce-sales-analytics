@@ -42,10 +42,18 @@ SELECT
 FROM customer_orders;
 
 
--- QUERY 4: Customer Segmentation
--- Skills: Multiple CTEs, CASE WHEN, date calculations
 
-WITH customer_summary AS (
+-- QUERY 4: Customer Segmentation
+-- Skills: CTEs, JOINs, CASE WHEN, date calculations
+-- Matches the Python dashboard's recency and frequency logic.
+
+WITH snapshot AS (
+    SELECT
+        datetime(MAX(order_purchase_timestamp), '+1 day') AS snapshot_time
+    FROM orders
+    WHERE order_status = 'delivered'
+),
+customer_summary AS (
     SELECT
         c.customer_unique_id,
         COUNT(DISTINCT o.order_id) AS purchase_frequency,
@@ -61,21 +69,28 @@ WITH customer_summary AS (
 ),
 segmented AS (
     SELECT
-        customer_unique_id,
-        total_spent,
+        cs.customer_unique_id,
+        cs.total_spent,
         CASE
-            WHEN julianday('2018-08-30') -
-                 julianday(last_purchase) <= 90
-                 AND purchase_frequency >= 2
+            WHEN cs.purchase_frequency >= 2
+                 AND CAST(
+                     julianday(s.snapshot_time) -
+                     julianday(cs.last_purchase)
+                     AS INTEGER
+                 ) <= 90
                 THEN 'Recent Repeat Buyers'
-            WHEN julianday('2018-08-30') -
-                 julianday(last_purchase) <= 90
-                THEN 'Recent One-Time Buyers'
-            WHEN purchase_frequency >= 2
+            WHEN cs.purchase_frequency >= 2
                 THEN 'Other Repeat Buyers'
+            WHEN CAST(
+                     julianday(s.snapshot_time) -
+                     julianday(cs.last_purchase)
+                     AS INTEGER
+                 ) <= 90
+                THEN 'Recent One-Time Buyers'
             ELSE 'Older One-Time Buyers'
         END AS customer_segment
-    FROM customer_summary
+    FROM customer_summary cs
+    CROSS JOIN snapshot s
 )
 SELECT
     customer_segment,
