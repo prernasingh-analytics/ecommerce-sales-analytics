@@ -1,0 +1,77 @@
+{
+  "unique_customers": 93358,
+  "one_time_customers": 90557,
+  "repeat_customers": 2801,
+  "repeat_rate_pct": 3.0,
+  "average_order_value_brl": 137.04,
+  "median_order_value_brl": 86.57,
+  "snapshot_date": "2018-08-30",
+  "frequency_distribution": [
+    {
+      "orders": 1,
+      "customers": 90557
+    },
+    {
+      "orders": 2,
+      "customers": 2573
+    },
+    {
+      "orders": 3,
+      "customers": 181
+    },
+    {
+      "orders": 4,
+      "customers": 28
+    },
+    {
+      "orders": 5,
+      "customers": 9
+    },
+    {
+      "orders": 6,
+      "customers": 5
+    },
+    {
+      "orders": 7,
+      "customers": 3
+    },
+    {
+      "orders": 9,
+      "customers": 1
+    },
+    {
+      "orders": 15,
+      "customers": 1
+    }
+  ],
+  "segments": [
+    {
+      "name": "Older one-time buyers",
+      "customers": 72712,
+      "revenue_brl": 10020111.44,
+      "customer_pct": 77.89,
+      "revenue_pct": 75.79
+    },
+    {
+      "name": "Recent one-time buyers",
+      "customers": 17845,
+      "revenue_brl": 2472977.92,
+      "customer_pct": 19.11,
+      "revenue_pct": 18.7
+    },
+    {
+      "name": "Other repeat buyers",
+      "customers": 2187,
+      "revenue_brl": 562909.97,
+      "customer_pct": 2.34,
+      "revenue_pct": 4.26
+    },
+    {
+      "name": "Recent repeat buyers",
+      "customers": 614,
+      "revenue_brl": 165498.78,
+      "customer_pct": 0.66,
+      "revenue_pct": 1.25
+    }
+  ]
+}
