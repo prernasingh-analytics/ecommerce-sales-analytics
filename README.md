@@ -112,3 +112,20 @@ The dataset contains historical e-commerce transactions from Brazil, primarily c
 ## Live Dashboard
 
 **[Explore the E-Commerce Sales & Customer Analytics Dashboard](https://prernasingh-analytics.github.io/ecommerce-sales-analytics/dashboard/index.html)**
+
+## SQL Analysis & Validation
+
+The project includes six SQL queries covering:
+
+- Monthly sales and revenue trends
+- Top-performing product categories
+- Customer purchase frequency and repeat purchase rate
+- Customer segmentation using recency and frequency
+- Month-over-month revenue growth using `LAG()`
+- Top product categories by customer state using `DENSE_RANK()`
+
+**Validation:** All six queries were executed successfully against the Olist dataset using SQLite. Customer segmentation results were independently cross-checked against the Python dashboard.
+
+The SQL and Python analyses produced identical customer segment counts and revenue totals across all four segments, covering 93,358 unique delivered customers.
+
+This validation demonstrates consistency between the SQL analysis and Python-based dashboard.
